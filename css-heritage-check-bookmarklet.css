@@ -26,35 +26,5 @@
     padding: 5px 10px;
     content: "☠  Un float left ou right doit être wrappé dans un bloc contenant un clearfix" !important;
 }
-/* bootstrap heritage check */
-*:not(.row) > [class^="col-"] {
-    border: 4px solid purple;
-}
-*:not(.row) > [class^="col-"]:first-child::before {
-    display: block;
-    color: red;
-    background: #fff;
-    border: red dashed 1px;
-    padding: 5px 10px;
-    content: "☠ Erreur d'imbrication Bootstrap 3 et 4 : un bloc .col-xx-x doit toujours avoir un .row comme parent" !important;
-}
 
-/* simple floats heritage check for Bootstrap, Google Material Design and Foundation  */
 
-*:not(.clearfix) > .float-left,    
-*:not(.clearfix) > .float-right {
-    border: 4px solid purple;
-}
-*:not(.clearfix) > .float-left::before,
-*:not(.clearfix) > .float-right::before {
-    display: block;
-    color: red;
-    background: #fff;
-    border: red dashed 1px;
-    padding: 5px 10px;
-    content: "☠  Un float left ou right doit être wrappé dans un bloc contenant un clearfix" !important;
-}
-
-body {
-    background-color: orange;
-}
