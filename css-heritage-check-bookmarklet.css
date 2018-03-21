@@ -1,4 +1,4 @@
-/* bootstrap heritage check */
+/* bootstrap inheritance check */
 
 *:not(.row) > [class^="col-"] {
     border: 4px solid purple;
@@ -9,10 +9,10 @@
     background: #fff;
     border: red dashed 1px;
     padding: 5px 10px;
-    content: "☠ Erreur d'imbrication Bootstrap 3 et 4 : un bloc .col-xx-x doit toujours avoir un .row comme parent" !important;
+    content: "☠ Bootstrap 3 and 4 nesting error: a .col-xx-x block must always have a .row as parent" !important;
 }
 
-/* simple floats heritage check for Bootstrap, Google Material Design and Foundation  */
+/* simple floats inheritance check for Bootstrap, Google Material Design and Zurb Foundation  */
 *:not(.clearfix) > .float-left,    
 *:not(.clearfix) > .float-right {
     border: 4px solid purple;
@@ -24,7 +24,7 @@
     background: #fff;
     border: red dashed 1px;
     padding: 5px 10px;
-    content: "☠  Un float left ou right doit être wrappé dans un bloc contenant un clearfix" !important;
+    content: "☠  A float-left or a float-right must be wrapped in a block containing a clearfix" !important;
 }
 
 
