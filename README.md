@@ -1,2 +1,2 @@
 # css-checkers
-Use CSS to debug styles issues
+Use CSS to debug HTML structure and styles issues
