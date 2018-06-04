@@ -1,0 +1,9 @@
+@charset 'UTF-8';
+
+
+/* import french alerts */
+
+@import "_alerts-fr.css";
+@import "_tests.css";
+
+/* don't use this file for the bookmarklet, use the combined file instead */
