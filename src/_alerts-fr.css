@@ -1,0 +1,49 @@
+@charset 'UTF-8';
+
+/**
+ * alert texts
+ * language: français
+ * */
+
+:root {
+    --alert-fw-01: "☠ Erreur d'imbrication Bootstrap 3 et 4 : un bloc .col-xx-x doit toujours avoir une .row comme parent.";
+    --alert-fw-02: "☠ Un float left ou right doit être wrappé dans un bloc contenant un clearfix";
+    
+    --alert-html-01: "☠ spécifier une langue de document";
+    --alert-html-02: "☠ spécifier un encodage UTF-8";
+    --alert-html-03: "☠ placer le meta[charset] en premier, avant le title";
+    --alert-html-04: "☠ laissez vos internautes pincher ! utiliser le viewport flexible : width=device-width";
+    --alert-html-05: "☠ eviter les redirections côté client, faites le côté serveur : https://www.w3.org/WAI/GL/2016/WD-WCAG20-TECHS-20160628/SVR1";
+    --alert-html-06: "☠ [for] du label vide";
+    --alert-html-07: "☠ [id] invalide";
+    --alert-html-08: "☠ [width] et [height] sont interdits";
+    --alert-html-09: "☠ bouton vide et sans titre";
+    --alert-html-10: "☠ [href] vide";
+    --alert-html-11: "☠ lien vide";
+    --alert-html-12: "☠ [name] manquant";
+    --alert-html-13: "☠ éléments interactifs imbriqués";
+    --alert-html-14: "☠ ";
+    --alert-html-15: "☠ ";
+    --alert-html-16: "☠ ";
+    --alert-html-17: "☠ ";
+    --alert-html-18: "☠ ";
+    --alert-html-19: "☠ ";
+    --alert-html-20: "☠ ";
+    --alert-html-21: "☠ ";
+    --alert-html-22: "☠ ";
+    --alert-html-23: "☠ ";
+    --alert-html-24: "☠ ";
+    --alert-html-25: "☠ ";
+    --alert-html-26: "☠ ";
+    --alert-html-27: "☠ ";
+    --alert-html-28: "☠ ";
+    --alert-html-29: "☠ ";
+    --alert-html-30: "☠ ";
+    --alert-html-31: "☠ ";
+    --alert-html-32: "☠ ";
+    --alert-html-33: "☠ ";
+    --alert-html-34: "☠ ";
+    --alert-html-35: "☠ ";
+}
+
+

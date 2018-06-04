@@ -1,0 +1,49 @@
+@charset 'UTF-8';
+
+/**
+ * alert texts
+ * language: français
+ * */
+
+:root {
+    --alert-fw-01: "☠ Bootstrap 3 and 4 nesting error: a .col-xx-x block must always have a .row as parent";
+    --alert-fw-02: "☠ A float-left or a float-right must be wrapped in a block containing a clearfix";
+    
+    --alert-html-01: "☠ specify a document language";
+    --alert-html-02: "☠ use UTF-8 encoding";
+    --alert-html-03: "☠ meta[charset] must be first, befor the title";
+    --alert-html-04: "☠ user should be able to zoom : width=device-width";
+    --alert-html-05: "☠ avoid client side redirects, do it server side : https://www.w3.org/WAI/GL/2016/WD-WCAG20-TECHS-20160628/SVR1";
+    --alert-html-06: "☠ empty label [for]";
+    --alert-html-07: "☠ invalid [id]";
+    --alert-html-08: "☠ [width] and [height] are forbidden";
+    --alert-html-09: "☠ empty and untitled button";
+    --alert-html-10: "☠ empty [href]";
+    --alert-html-11: "☠ empty [name]";
+    --alert-html-12: "☠ nested interactive elements";
+    --alert-html-13: "☠ ";
+    --alert-html-14: "☠ ";
+    --alert-html-15: "☠ ";
+    --alert-html-16: "☠ ";
+    --alert-html-17: "☠ ";
+    --alert-html-18: "☠ ";
+    --alert-html-19: "☠ ";
+    --alert-html-20: "☠ ";
+    --alert-html-21: "☠ ";
+    --alert-html-22: "☠ ";
+    --alert-html-23: "☠ ";
+    --alert-html-24: "☠ ";
+    --alert-html-25: "☠ ";
+    --alert-html-26: "☠ ";
+    --alert-html-27: "☠ ";
+    --alert-html-28: "☠ ";
+    --alert-html-29: "☠ ";
+    --alert-html-30: "☠ ";
+    --alert-html-31: "☠ ";
+    --alert-html-32: "☠ ";
+    --alert-html-33: "☠ ";
+    --alert-html-34: "☠ ";
+    --alert-html-35: "☠ ";
+}
+
+
