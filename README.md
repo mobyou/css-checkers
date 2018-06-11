@@ -1,4 +1,4 @@
-#HTML5 Checker
+## HTML5 Checker
 
-## Bookmarklet de diagnostic qualité HTML5/CSS 
+### Bookmarklet de diagnostic qualité HTML5/CSS 
 
