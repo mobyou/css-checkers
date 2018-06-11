@@ -1,13 +1,11 @@
-  
 <!DOCTYPE html>
 <html lang="fr">
     <head>
-        <meta charset="UTF-8">
+        <meta charset="utf-8">
         <title>Bootstrap CSS checker</title>
         <meta name="viewport" content="width=device-width">
         <meta name="robots" content="noindex">
-
-<style>
+        <style>
             .page {
                 max-width: 40em;
                 margin: 2em auto;
@@ -41,7 +39,48 @@
             .page li {
                 margin-bottom: .75rem;
             }
+            .page ol li {
+                text-transform: capitalize;
+            }
         </style>
+
+        <script>
+
+            /* Original Javascript */
+            // document.addEventListener("DOMContentLoaded", function() {
+
+
+            /*var cssCheck = document.createElement("link");
+                cssCheck.href = "https://cdn.rawgit.com/mobyou/css-checkers/master/css-heritage-check-bookmarklet.css";
+                cssCheck.rel = "stylesheet";
+                cssCheck.media = "(min-width:640px)";
+                document.body.appendChild(cssCheck);*/
+
+            /*duplicateIdsCheck*/
+
+            /*var n, e, o, r = document.getElementsByTagName("*"), t = {}, feedback = "";
+                for (n = 0, e = r.length; n < e; n += 1)(o = r[n].id || null) && (t[o] = t.hasOwnProperty(o) ? t[o] += 1 : 0);
+                for (o in t) {
+                    if (t.hasOwnProperty(o) && t[o]){
+                        console.warn("Multiple IDs #" + o);
+                        feedback += "Multiple IDs #" + o + "\n";
+                    }
+                }
+                if (feedback != "") {
+                    if(!document.getElementById("feedbackJSChecker")){
+                    var feedbackWrap = document.createElement("div");
+                    feedbackWrap.id = "feedbackJSChecker";
+                    feedbackWrap.style = "font:700 1.125rem/1.5 sans-serif;font-family:-apple-system,BlinkMacSystemFont,Roboto,Oxygen-Sans,Ubuntu,Cantarell,sans-serif;font-size:1.125rem;background:#737373;color:white;display:inline-block;left:auto;padding:0.75em 1em 0.75em 1.5em;    position:fixed;bottom:1rem;right:1rem;top:auto;width:auto;white-space:pre; z-index:2147483648;";
+                    document.body.appendChild(feedbackWrap);}
+                    document.getElementById("feedbackJSChecker").innerHTML="";
+                    document.getElementById("feedbackJSChecker").append(feedback);
+                }
+*/
+            //});
+
+        </script>
+
+
     </head>
     <body>
         <div class="page">
@@ -59,24 +98,72 @@
                 <li>Ouvrir votre page distante ou locale</li>
                 <li>Cliquer sur votre favori "HTML5 Checker"</li>
                 <li>Si un problème d'héritage apparaît, les blocs concernés sont surlignés en violet et le premier bloc en erreur est assorti d'une bulle rouge commençant avec une tête de mort</li>
+                <li>Si un problème de structure ou d'attribut HTML apparaît, les erreurs et les avertissements sont indiqués sur la page</li>
+                <li>Un récap du nombres d'erreurs HTML est résumé en bas à gauche quand le CSS de la page analysée le permet</li>
+                <li>Un récap des id HTML est résumé en bas à droite</li>
                 <li>Pour faire disparaître cette feuille de style de checkup, rafraîchir la page</li>
             </ol>
 
             <h2>Comment ça marche ?</h2>
 
             <ol>
-                <li>Ce bookmarklet utilise du JS pour injecter du code en fin de page (avant la fermeture du body), mais le code injecté est inoffensif, il ne contient que du CSS et ne devrait pas perturber vos JS en cours</li>
+                <li>Ce bookmarklet utilise du JS pour injecter du code en fin de page (avant la fermeture du body), Le Javascript teste les id dupliqués et injecte avant un CSS inoffensif qui teste la structure et la validité du balisage HTML5</li>
                 <li>Sans que vous n'ayez aucune mise à jour à faire, le code injecté pourra évoluer et s'enrichir d'autres tests</li>
             </ol>
             <h2>Tests effectués par cet HTML checker :</h2>
-            <ol>
+            <ol id="test-list">
+
+                <li>spécifier une langue de document</li>
+                <li>spécifier un encodage UTF-8</li>
+                <li>placer le meta[charset] en premier, avant le title</li>
+                <li>laissez vos internautes pincher ! utiliser le viewport flexible : width=device-width</li>
+                <li>eviter les redirections côté client, faites le côté serveur : https://www.w3.org/WAI/GL/2016/WD-WCAG20-TECHS-20160628/SVR1</li>
+                <li>[for] du label vide</li>
+                <li>[id] invalide</li>
+                <li>[width] et [height] sont interdits</li>
+                <li>bouton vide et sans titre</li>
+                <li>[href] vide</li>
+                <li>lien vide</li>
+                <li>[name] manquant</li>
+                <li>éléments interactifs imbriqués</li>
+                <li>[action] manquant</li>
+                <li>[alt] manquant</li>
+                <li>champ sans label</li>
+                <li>tag title de la page vide</li>
+                <li>iframe sans [title]</li>
+                <li>button sans [type]</li>
+                <li>input sans [type]</li>
+                <li>[tabindex]>0</li>
+                <li>
+                    enfant invalide de dl
+                </li>
+                <li>
+                    figcaption à l'extérieur de figure
+                </li>
+                <li>imbrication li invalide</li>
+                <li>imbrication invalide de balises</li>
+                <li>sectionnement mal utilisé</li>
+                <li>div dans un élément inline</li>
+                <li>
+                    [for] manquant dans un label
+                </li>
+                <li>
+                    un fieldset commence par une legend
+                </li>
+                <li>
+                    un tableau de données commence par caption
+                </li>
+                <li>target blank sans [rel]</li>
+                <li>main doit être unique</li>
+                <li>lien sans cible</li>
+                <li>pas d'HTTPS</li>
+                <li>[placeholder] ne remplace pas un label</li>
+                <li>appel JS : [integrity] et [crossorigin] manquants</li>
 
             </ol>
 
 
 
         </div>
-
     </body>
 </html>
-
