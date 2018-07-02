@@ -2,48 +2,52 @@
 
 /**
  * alert texts
- * language: français
+ * language: english
  * */
 
 :root {
-    --alert-fw-01: "☠ Bootstrap 3 and 4 nesting error: a .col-xx-x block must always have a .row as parent";
-    --alert-fw-02: "☠ A float-left or a float-right must be wrapped in a block containing a clearfix";
+    --alert-fw-01: "bootstrap 3 and 4 nesting error: a .col-xx-x block must always have a .row as parent";
+    --alert-fw-02: "a float-left or a float-right must be wrapped in a block containing a clearfix";
     
-    --alert-html-01: "☠ specify a document language";
-    --alert-html-02: "☠ use UTF-8 encoding";
-    --alert-html-03: "☠ meta[charset] must be first, befor the title";
-    --alert-html-04: "☠ user should be able to zoom : width=device-width";
-    --alert-html-05: "☠ avoid client side redirects, do it server side : https://www.w3.org/WAI/GL/2016/WD-WCAG20-TECHS-20160628/SVR1";
-    --alert-html-06: "☠ empty label [for]";
-    --alert-html-07: "☠ invalid [id]";
-    --alert-html-08: "☠ [width] and [height] are forbidden";
-    --alert-html-09: "☠ empty and untitled button";
-    --alert-html-10: "☠ empty [href]";
-    --alert-html-11: "☠ empty [name]";
-    --alert-html-12: "☠ nested interactive elements";
-    --alert-html-13: "☠ ";
-    --alert-html-14: "☠ ";
-    --alert-html-15: "☠ ";
-    --alert-html-16: "☠ ";
-    --alert-html-17: "☠ ";
-    --alert-html-18: "☠ ";
-    --alert-html-19: "☠ ";
-    --alert-html-20: "☠ ";
-    --alert-html-21: "☠ ";
-    --alert-html-22: "☠ ";
-    --alert-html-23: "☠ ";
-    --alert-html-24: "☠ ";
-    --alert-html-25: "☠ ";
-    --alert-html-26: "☠ ";
-    --alert-html-27: "☠ ";
-    --alert-html-28: "☠ ";
-    --alert-html-29: "☠ ";
-    --alert-html-30: "☠ ";
-    --alert-html-31: "☠ ";
-    --alert-html-32: "☠ ";
-    --alert-html-33: "☠ ";
-    --alert-html-34: "☠ ";
-    --alert-html-35: "☠ ";
+    --alert-html-01: "specify a document language";
+    --alert-html-02: "use UTF-8 encoding";
+    --alert-html-03: "meta[charset] must be first, befor the title";
+    --alert-html-04: "user should be able to zoom : width=device-width";
+    --alert-html-05: "avoid client side redirects, do it server side : https://www.w3.org/WAI/GL/2016/WD-WCAG20-TECHS-20160628/SVR1";
+    --alert-html-06: "empty label [for]";
+    --alert-html-07: "invalid [id]";
+    --alert-html-08: "[width] and [height] are forbidden";
+    --alert-html-09: "empty and untitled button";
+    --alert-html-10: "empty [href]";
+    --alert-html-11: "empty link";
+    --alert-html-12: "missing input [name]";
+    --alert-html-13: "nested interactive elements";
+    --alert-html-14: "missing [action] or proper [method]";
+    --alert-html-15: "missing [alt]";
+    --alert-html-16: "unlabelled field";
+    --alert-html-17: "empty page title";
+    --alert-html-18: "iframe without [title]";
+    --alert-html-19: "button without [type]";
+    --alert-html-20: "input without [type]";
+    --alert-html-21: "[tabindex]>0";
+    --alert-html-22: "invalid <dl> child";
+    --alert-html-23: "<figcaption> outside <figure>";
+    --alert-html-24: "invalid <li> nesting";
+    --alert-html-25: "invalid tag nesting";
+    --alert-html-26: "misused sectioning tag";
+    --alert-html-27: "<div> in inline element";
+    --alert-html-28: "missing [for] into a <label>";
+    --alert-html-29: "<fieldset must start width <legend>";
+    --alert-html-30: "data table must start with <caption>";
+    --alert-html-31: "unsafe [target] (without [rel])";
+    --alert-html-32: "missing [action]";
+    --alert-html-33: "link without target";
+    --alert-html-34: "no HTTPS";
+    --alert-html-35: "[placeholder] can't replace <label>";
+    --alert-html-36: "JS call : missing [integrity] and [crossorigin]";
+    --alert-html-37: "obsolete tag";
+    --alert-html-38: "a decorative SVG has no img role";
+    --alert-html-39: "an informative SVG has an img role and an aria-label";
 }
 
 

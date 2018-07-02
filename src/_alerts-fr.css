@@ -6,44 +6,48 @@
  * */
 
 :root {
-    --alert-fw-01: "☠ Erreur d'imbrication Bootstrap 3 et 4 : un bloc .col-xx-x doit toujours avoir une .row comme parent.";
-    --alert-fw-02: "☠ Un float left ou right doit être wrappé dans un bloc contenant un clearfix";
+    --alert-fw-01: "erreur d'imbrication Bootstrap 3 et 4 : un bloc .col-xx-x doit toujours avoir une .row comme parent.";
+    --alert-fw-02: "un float left ou right doit être wrappé dans un bloc contenant un clearfix";
     
-    --alert-html-01: "☠ spécifier une langue de document";
-    --alert-html-02: "☠ spécifier un encodage UTF-8";
-    --alert-html-03: "☠ placer le meta[charset] en premier, avant le title";
-    --alert-html-04: "☠ laissez vos internautes pincher ! utiliser le viewport flexible : width=device-width";
-    --alert-html-05: "☠ eviter les redirections côté client, faites le côté serveur : https://www.w3.org/WAI/GL/2016/WD-WCAG20-TECHS-20160628/SVR1";
-    --alert-html-06: "☠ [for] du label vide";
-    --alert-html-07: "☠ [id] invalide";
-    --alert-html-08: "☠ [width] et [height] sont interdits";
-    --alert-html-09: "☠ bouton vide et sans titre";
-    --alert-html-10: "☠ [href] vide";
-    --alert-html-11: "☠ lien vide";
-    --alert-html-12: "☠ [name] manquant";
-    --alert-html-13: "☠ éléments interactifs imbriqués";
-    --alert-html-14: "☠ ";
-    --alert-html-15: "☠ ";
-    --alert-html-16: "☠ ";
-    --alert-html-17: "☠ ";
-    --alert-html-18: "☠ ";
-    --alert-html-19: "☠ ";
-    --alert-html-20: "☠ ";
-    --alert-html-21: "☠ ";
-    --alert-html-22: "☠ ";
-    --alert-html-23: "☠ ";
-    --alert-html-24: "☠ ";
-    --alert-html-25: "☠ ";
-    --alert-html-26: "☠ ";
-    --alert-html-27: "☠ ";
-    --alert-html-28: "☠ ";
-    --alert-html-29: "☠ ";
-    --alert-html-30: "☠ ";
-    --alert-html-31: "☠ ";
-    --alert-html-32: "☠ ";
-    --alert-html-33: "☠ ";
-    --alert-html-34: "☠ ";
-    --alert-html-35: "☠ ";
+    --alert-html-01: "spécifier une langue de document";
+    --alert-html-02: "spécifier un encodage UTF-8";
+    --alert-html-03: "placer le meta[charset] en premier, avant le title";
+    --alert-html-04: "laissez vos internautes pincher ! utiliser le viewport flexible : width=device-width";
+    --alert-html-05: "evitez les redirections côté client, faites le côté serveur : https://www.w3.org/WAI/GL/2016/WD-WCAG20-TECHS-20160628/SVR1";
+    --alert-html-06: "[for] du label vide";
+    --alert-html-07: "[id] invalide";
+    --alert-html-08: "[width] et [height] sont interdits";
+    --alert-html-09: "bouton vide et sans titre";
+    --alert-html-10: "[href] vide";
+    --alert-html-11: "lien vide";
+    --alert-html-12: "[name] manquant";
+    --alert-html-13: "éléments interactifs imbriqués";
+    --alert-html-14: "[action] non vide ou [method] valide manquants";
+    --alert-html-15: "[alt] manquant";
+    --alert-html-16: "champ sans label";
+    --alert-html-17: "tag title de la page vide";
+    --alert-html-18: "iframe sans [title]";
+    --alert-html-19: "button sans [type]";
+    --alert-html-20: "input sans [type]";
+    --alert-html-21: "[tabindex]>0";
+    --alert-html-22: "enfant invalide de <dl>";
+    --alert-html-23: "<figcaption> à l'extérieur de <figure>";
+    --alert-html-24: "imbrication <li> invalide";
+    --alert-html-25: "imbrication invalide de balises";
+    --alert-html-26: "sectionnement mal utilisé";
+    --alert-html-27: "<div> dans un élément inline";
+    --alert-html-28: "[for] manquant dans un <label>";
+    --alert-html-29: "un <fieldset> commence par une <legend>";
+    --alert-html-30: "un tableau de données commence par <caption>";
+    --alert-html-31: "target blank sans [rel]";
+    --alert-html-32: "[action] manquant";
+    --alert-html-33: "lien sans cible";
+    --alert-html-34: "pas d'HTTPS";
+    --alert-html-35: "[placeholder] ne remplace pas un label";
+    --alert-html-36: "appel JS : [integrity] et [crossorigin] manquants";
+    --alert-html-37: "balise obsolète";
+    --alert-html-38: "un SVG décoratif n'a pas de role img";
+    --alert-html-39: "un SVG informatif a un role img et un aria-label";
 }
 
 
