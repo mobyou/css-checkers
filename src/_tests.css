@@ -31,7 +31,7 @@
 Thanks to Gaël Poupard https://ffoodd.github.io/a11y.css/
 */
 html {
-    counter-reset: error error-link error-img error-label warning warning-href warning-https warning-target;
+    counter-reset: error error-other error-link error-img error-label warning warning-other warning-href warning-https warning-target;
 }
 body::after {
     /*background-image:linear-gradient(to bottom, transparent, transparent 1.4em,var(--error-border-color) 1.4em,var(--error-border-color) 1.6em,transparent 1.6em, transparent 100%);*/
@@ -65,7 +65,7 @@ body::after {
     width:auto;
     white-space:pre;
     z-index:2147483647;
-    content: "Errors" ": " counter(error) " (link: "counter(error-link)" , img: "counter(error-img)" , label: "counter(error-label)")" "\a" "Warnings" ": "counter(warning)" (href: "counter(warning-href)" , https: "counter(warning-https)" , target: "counter(warning-target)")"  "\a";
+    content: "Errors" ": " counter(error) " (link: "counter(error-link)", img: "counter(error-img)", label: "counter(error-label)", other: "counter(error-other)")" "\a" "Warnings" ": "counter(warning)" (href: "counter(warning-href)", https: "counter(warning-https)", target: "counter(warning-target)", other: "counter(warning-other)")"  "\a";
 }
 head {
     display:block;
@@ -75,7 +75,7 @@ head {
  * Bootstrap inheritance check
  */
 *:not(.row) > [class^="col-"] {
-    counter-increment: error !important;
+    counter-increment: error error-other !important;
     outline: 4px solid (--error-border-color) !important;
     outline-offset: -4px !important;
 }
@@ -93,7 +93,7 @@ head {
  */
 *:not(.clearfix) > .float-left,    
 *:not(.clearfix) > .float-right {
-    counter-increment: error !important;
+    counter-increment: error error-other !important;
     outline: 4px solid (--error-border-color) !important;
     outline-offset: -4px !important;
 }
@@ -113,7 +113,7 @@ head {
  */
 html:not([lang]),
 html[lang=""] {
-    counter-increment: error !important;
+    counter-increment: error error-other !important;
 }
 html:not([lang]) body::before,
 html[lang=""] body::before {
@@ -131,7 +131,7 @@ html[lang=""] body::before {
 meta[charset]:not([charset="UTF-8"]){
     /* keep header pseudo elements visible */
     display: block;
-    counter-increment: error !important;
+    counter-increment: error error-other !important;
 }
 meta[charset]:not([charset="UTF-8"])::after{
     display: block;
@@ -148,7 +148,7 @@ meta[charset]:not([charset="UTF-8"])::after{
  */
 meta[charset="UTF-8"]:not(:first-child){
     display: block;
-    counter-increment: error !important;
+    counter-increment: error error-other !important;
 }
 meta[charset="UTF-8"]:not(:first-child)::after{
     display: block;
@@ -167,7 +167,7 @@ meta[name="viewport"][content*="user-scalable=no"],
 meta[name="viewport"][content*="maximum-scale"],
 meta[name="viewport"][content*="minimum-scale"] {
     display: block;
-    counter-increment: error !important;
+    counter-increment: error error-other !important;
 }
 meta[name="viewport"][content*="user-scalable=no"]::after,
 meta[name="viewport"][content*="maximum-scale"]::after,
@@ -187,7 +187,7 @@ meta[name="viewport"][content*="minimum-scale"]::after {
 head > meta[http-equiv="refresh"]{
     /* rend les pseudo-éléments visibles dans le header */
     display: block; 
-    counter-increment: error !important;
+    counter-increment: error error-other !important;
 }
 head > meta[http-equiv="refresh"]::after{
     display: block;
@@ -225,7 +225,7 @@ label[for=""]::after, label[for=" "]::after {
  * Id name with bad syntax
  */
 [id^="1"], [id^="2"], [id^="3"], [id^="4"], [id^="5"], [id^="6"], [id^="7"], [id^="8"], [id^="9"], [id^="0"], [id^="--"], [id^="-1"], [id^="-2"], [id^="-3"], [id^="-4"], [id^="-5"], [id^="-6"], [id^="-7"], [id^="-8"], [id^="-9"], [id^="-0"] {
-    counter-increment: error !important;
+    counter-increment: error error-other !important;
     outline: 4px solid (--error-border-color) !important;
     outline-offset: -4px !important;
 }
@@ -243,7 +243,7 @@ label[for=""]::after, label[for=" "]::after {
  */
 :not(img):not(object):not(embed):not(svg):not(canvas)[width],
 :not(img):not(object):not(embed):not(svg):not(canvas)[height] {
-    counter-increment: error !important;
+    counter-increment: error error-other !important;
 }
 :not(img):not(object):not(embed):not(svg):not(canvas)[width]::after,
 :not(img):not(object):not(embed):not(svg):not(canvas)[height]::after {
@@ -260,7 +260,7 @@ label[for=""]::after, label[for=" "]::after {
  */
 button:empty:not([aria-label]):not([aria-labelledby]):not([title]),
 button:-moz-only-whitespace:not([aria-label]):not([aria-labelledby]):not([title]) {
-    counter-increment: error !important;
+    counter-increment: error error-other !important;
 }
 button:empty:not([aria-label]):not([aria-labelledby]):not([title])::after,
 button:-moz-only-whitespace:not([aria-label]):not([aria-labelledby]):not([title])::after {
@@ -325,7 +325,7 @@ a:-moz-only-whitespace:not([title]):not([aria-label]):not([aria-labelledby])::af
 [type="checkbox"]:not(:only-of-type):not([name]) {
     outline: 4px solid var(--error-border-color) !important;
     outline-offset: -4px !important;
-    counter-increment: error !important;
+    counter-increment: error error-other !important;
 }
 [type="radio"]:not([name]) + ::before,
 [type="checkbox"]:not(:only-of-type):not([name]) + ::before {
@@ -370,7 +370,7 @@ meter meter,
 progress progress {
     outline: 4px solid var(--error-border-color) !important;
     outline-offset: -4px !important;
-    counter-increment: error !important;
+    counter-increment: error error-other !important;
 }
 a a[href]::after,
 button a[href]::after,
@@ -415,7 +415,7 @@ form:not([action]):not([method="get"]):not([method="post"]):not([method="dialog"
 form[action=""]:not([method="get"]):not([method="post"]):not([method="dialog"]) {
     outline: 4px solid var(--error-border-color) !important;
     outline-offset: -4px !important;
-    counter-increment: error !important;
+    counter-increment: error error-other !important;
 }
 form:not([action]):not([method="get"]):not([method="post"]):not([method="dialog"])::after,
 form[action=""]:not([method="get"]):not([method="post"]):not([method="dialog"])::after {
@@ -482,7 +482,7 @@ title:empty,
 title:-moz-only-whitespace {
     /* keep header element visible */
     display: block;
-    counter-increment: error !important;
+    counter-increment: error error-other !important;
 }
 title:empty::after,
 title:-moz-only-whitespace::after {
@@ -503,7 +503,7 @@ iframe[title=" "],
 iframe[title=""] {
     outline: 4px solid var(--error-border-color) !important;
     outline-offset: -4px !important;
-    counter-increment: error !important;
+    counter-increment: error error-other !important;
 }
 iframe:not([title]) + ::before,
 iframe[title=" "] + ::before,
@@ -525,7 +525,7 @@ button[type=" "],
 button[type=""] {
     outline: 4px solid var(--error-border-color) !important;
     outline-offset: -4px !important;
-    counter-increment: error !important;
+    counter-increment: error error-other !important;
 }
 button:not([type])::after,
 button[type=" "]::after,
@@ -546,7 +546,7 @@ input[type=" "],
 input[type=""] {
     outline: 4px solid var(--error-border-color) !important;
     outline-offset: -4px !important;
-    counter-increment: error !important;
+    counter-increment: error error-other !important;
 }
 input:not([type]) + ::before,
 input[type=" "] + ::before,
@@ -565,7 +565,7 @@ input[type=""] + ::before {
 [tabindex]:not([tabindex="0"]):not([tabindex="-1"]) {
     outline: 4px solid var(--error-border-color) !important;
     outline-offset: -4px !important;
-    counter-increment: error !important;
+    counter-increment: error error-other !important;
 }
 [tabindex]:not([tabindex="0"]):not([tabindex="-1"])::after {
     display: block;
@@ -583,7 +583,7 @@ dt + :not(dd),
 :not(dt):not(dd) + dd {
     outline: 4px solid var(--error-border-color) !important;
     outline-offset: -4px !important;
-    counter-increment: error !important;
+    counter-increment: error error-other !important;
 }
 :not(dl) > dt::after,
 :not(dl) > dd::after,
@@ -602,7 +602,7 @@ dl > :not(dt):not(dd):not(div)::after {
 :not(figure) > figcaption {
     outline: 4px solid var(--error-border-color) !important;
     outline-offset: -4px !important;
-    counter-increment: error !important;
+    counter-increment: error error-other !important;
 }
 :not(figure) > figcaption::after {
     display: block;
@@ -621,7 +621,7 @@ ol > :not(li),
 :not(ul):not(ol) > li {
     outline: 4px solid var(--error-border-color) !important;
     outline-offset: -4px !important;
-    counter-increment: error !important;
+    counter-increment: error error-other !important;
 }
 ul > :not(li)::after,
 ol > :not(li)::after,
@@ -668,7 +668,7 @@ address article,
 address section {
     outline: 4px solid var(--error-border-color) !important;
     outline-offset: -4px !important;
-    counter-increment: error !important;
+    counter-increment: error error-other !important;
 }
 nav main::after,
 aside main::after,
@@ -720,7 +720,7 @@ article > section:first-child,
 article > article:first-child {
     outline: 4px solid var(--error-border-color) !important;
     outline-offset: -4px !important;
-    counter-increment: error !important;
+    counter-increment: error error-other !important;
 }
 aside > aside:first-child::after,
 article > aside:first-child::after,
@@ -753,7 +753,7 @@ label div,
 strong div {
     outline: 4px solid var(--error-border-color) !important;
     outline-offset: -4px !important;
-    counter-increment: error !important;
+    counter-increment: error error-other !important;
 }
 b div::after,
 i div::after,
@@ -798,7 +798,7 @@ fieldset > *:not(legend):first-child,
 fieldset > legend:not(:first-child) {
     outline: 4px solid var(--error-border-color) !important;
     outline-offset: -4px !important;
-    counter-increment: error !important;
+    counter-increment: error error-other !important;
 }
 fieldset > :not(legend):first-child::after,
 fieldset > legend:not(:first-child)::after {
@@ -817,7 +817,7 @@ table:not([role="presentation"]) > caption:not(:first-child),
 table:not([role="presentation"]) > *:first-child:not(caption) {
     outline: 4px solid var(--warn-border-color) !important;
     outline-offset: -4px !important;
-    counter-increment: warning !important;
+    counter-increment: warning warning-other !important;
 }
 table:not([role="presentation"]) > caption:not(:first-child)::after,
 table:not([role="presentation"]) > :first-child:not(caption)::after {
@@ -857,7 +857,7 @@ form[action=" "],
 form[action=""] {
     outline: 4px solid var(--warn-border-color) !important;
     outline-offset: -4px !important;
-    counter-increment: warning !important;
+    counter-increment: warning warning-other !important;
 }
 form:not([action])::after, 
 form[action=" "]::after, 
@@ -912,7 +912,7 @@ a:not([href])::after {
 [placeholder]:not([title]):not([aria-label]):not([aria-labelledby]) {
     outline: 4px solid var(--warn-border-color) !important;
     outline-offset: -4px !important;
-    counter-increment: warning !important;
+    counter-increment: warning warning-other !important;
 }
 [placeholder]:not([title]):not([aria-label]):not([aria-labelledby]) + ::before {
     display: block;
@@ -932,7 +932,7 @@ script[src^="http"][src*="googleapis"]:not([integrity]):not([crossorigin]),
 script[src^="http"][src*="code"]:not([integrity]):not([crossorigin]){
     /* rend les pseudo-éléments visibles dans le header */
     display: block; 
-    counter-increment: warning !important;
+    counter-increment: warning warning-other !important;
 }
 script[src^="http"][src*="cdn"]:not([integrity]):not([crossorigin])::after,
 script[src^="http"][src*="unpkg.com"]:not([integrity]):not([crossorigin])::after,
@@ -982,7 +982,7 @@ menu,
 menuitem {
     outline: 4px solid var(--warn-border-color) !important;
     outline-offset: -4px !important;
-    counter-increment: warning !important;
+    counter-increment: warning warning-other !important;
 }
 applet::after,
 acronym::after,
