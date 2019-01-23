@@ -3,16 +3,15 @@
 /* Colors */
 
 :root {
-    --error-pic: "☠ ";
-    --error-bg-color: white;
-    --error-border-color: #BE3F55;
-    --error-font-color: #BE3F55;
-    --warn-pic: "⚠ ";
-    --warn-bg-color: white;
-    --warn-border-color: #0070FB;
-    --warn-font-color: #0070FB;
+	--error-pic: "☠ ";
+	--error-bg-color: white;
+	--error-border-color: #be3f55;
+	--error-font-color: #be3f55;
+	--warn-pic: "⚠ ";
+	--warn-bg-color: white;
+	--warn-border-color: #0070fb;
+	--warn-font-color: #0070fb;
 }
-
 
 /* Symbols 
 *
@@ -31,133 +30,148 @@
 Thanks to Gaël Poupard https://ffoodd.github.io/a11y.css/
 */
 html {
-    counter-reset: error error-other error-link error-img error-label warning warning-other warning-href warning-https warning-target;
+	counter-reset: error error-other error-link error-img error-label warning
+		warning-other warning-href warning-https warning-target;
 }
 body::after {
-    /*background-image:linear-gradient(to bottom, transparent, transparent 1.4em,var(--error-border-color) 1.4em,var(--error-border-color) 1.6em,transparent 1.6em, transparent 100%);*/
-    
-    background-image:linear-gradient(to
-     bottom,
-     transparent,
-     transparent 1.4em,
-     var(--error-border-color) 1.4em,
-     var(--error-border-color) 1.6em,
-     transparent 1.6em, 
-     transparent 1.6em,
-     transparent 2.9em,
-     var(--warn-border-color) 2.9em,
-     var(--warn-border-color) 3.1em,
-     transparent 2.9em,transparent 100%);
-    background-color:#333;
-    background-position:0.5em 0;
-    background-repeat:no-repeat;
-    background-size:0.5em 100%;
-    bottom:1em;
-    color: #fff;
-    font:700 1.125rem/1.5 sans-serif;
-    font-family:-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
-    height:auto;
-    left:1em;
-    padding:0.75em 1em 0.75em 1.5em;
-    position:fixed;
-    right:auto;
-    top:auto;
-    width:auto;
-    white-space:pre;
-    z-index:2147483647;
-    content: "Errors" ": " counter(error) " (link: "counter(error-link)", img: "counter(error-img)", label: "counter(error-label)", other: "counter(error-other)")" "\a" "Warnings" ": "counter(warning)" (href: "counter(warning-href)", https: "counter(warning-https)", target: "counter(warning-target)", other: "counter(warning-other)")"  "\a";
+	/*background-image:linear-gradient(to bottom, transparent, transparent 1.4em,var(--error-border-color) 1.4em,var(--error-border-color) 1.6em,transparent 1.6em, transparent 100%);*/
+
+	background-image: linear-gradient(
+		to bottom,
+		transparent,
+		transparent 1.4rem,
+		var(--error-border-color) 1.4rem,
+		var(--error-border-color) 1.6rem,
+		transparent 1.6rem,
+		transparent 1.6rem,
+		transparent 2.9rem,
+		var(--warn-border-color) 2.9rem,
+		var(--warn-border-color) 3.1rem,
+		transparent 2.9rem,
+		transparent 100%
+	);
+	background-color: #333;
+	background-position: 0.75em 0;
+	background-repeat: no-repeat;
+	background-size: 0.75em 100%;
+	bottom: 1em;
+	color: #D3E8EE;
+	font: 700 1.125rem/1.5 sans-serif;
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+		Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+	height: auto;
+	left: 1em;
+	padding: 0.75rem 1rem 0.75rem 2rem;
+	position: fixed;
+	right: auto;
+	top: auto;
+	width: auto;
+	white-space: pre;
+	z-index: 2147483647;
+	content: "Errors" ": " counter(error) " (link: " counter(error-link) ", img: "
+		counter(error-img) ", label: " counter(error-label) ", other: "
+		counter(error-other) ")" "\a" "Warnings" ": " counter(warning) " (href: "
+		counter(warning-href) ", https: " counter(warning-https) ", target: "
+		counter(warning-target) ", other: " counter(warning-other) ")" "\a";
 }
+body::after,
+#feedbackJSChecker {
+    border: #D3E8EE solid 1px;
+    box-shadow: 0px 0px 61px 0px rgba(115,115,115,0.62);
+    border-radius: 4px;
+    color: #D3E8EE;
+}
+
 head {
-    display:block;
+	display: block;
 }
 
 /* Framework #01
  * Bootstrap inheritance check
  */
 *:not(.row) > [class^="col-"] {
-    counter-increment: error error-other !important;
-    outline: 4px solid (--error-border-color) !important;
-    outline-offset: -4px !important;
+	counter-increment: error error-other !important;
+	outline: 4px solid (--error-border-color) !important;
+	outline-offset: -4px !important;
 }
 *:not(.row) > [class^="col-"]:first-child::before {
-    display: block;
-    color: var(--error-font-color);
-    background: var(--error-bg-color);
-    border: var(--error-font-color) dashed 1px;
-    padding: 5px 10px;
-    content: var(--error-pic) var(--alert-fw-01) !important;
+	display: block;
+	color: var(--error-font-color);
+	background: var(--error-bg-color);
+	border: var(--error-font-color) dashed 1px;
+	padding: 5px 10px;
+	content: var(--error-pic) var(--alert-fw-01) !important;
 }
 
 /* Framework #02
  * Floats inheritance check for Bootstrap, Google Material Design and Zurb Foundation
  */
-*:not(.clearfix) > .float-left,    
+*:not(.clearfix) > .float-left,
 *:not(.clearfix) > .float-right {
-    counter-increment: error error-other !important;
-    outline: 4px solid (--error-border-color) !important;
-    outline-offset: -4px !important;
+	counter-increment: error error-other !important;
+	outline: 4px solid (--error-border-color) !important;
+	outline-offset: -4px !important;
 }
 *:not(.clearfix) > .float-left::before,
 *:not(.clearfix) > .float-right::before {
-    display: block;
-    color: var(--error-font-color);
-    background: var(--error-bg-color);
-    border: var(--error-font-color) dashed 1px;
-    padding: 5px 10px;
-    content: var(--error-pic) var(--alert-fw-02) !important;
+	display: block;
+	color: var(--error-font-color);
+	background: var(--error-bg-color);
+	border: var(--error-font-color) dashed 1px;
+	padding: 5px 10px;
+	content: var(--error-pic) var(--alert-fw-02) !important;
 }
-
 
 /* HTML #01
  * No language is bad
  */
 html:not([lang]),
 html[lang=""] {
-    counter-increment: error error-other !important;
+	counter-increment: error error-other !important;
 }
 html:not([lang]) body::before,
 html[lang=""] body::before {
-    display: block;
-    color: var(--error-font-color);
-    background: var(--error-bg-color);
-    border: var(--error-font-color) dashed 1px;
-    padding: 5px 10px;
-    content: var(--error-pic) var(--alert-html-01) !important;
+	display: block;
+	color: var(--error-font-color);
+	background: var(--error-bg-color);
+	border: var(--error-font-color) dashed 1px;
+	padding: 5px 10px;
+	content: var(--error-pic) var(--alert-html-01) !important;
 }
 
 /* HTML #02
  * Charset
  */
-meta[charset]:not([charset="UTF-8"]){
-    /* keep header pseudo elements visible */
-    display: block;
-    counter-increment: error error-other !important;
+meta[charset]:not([charset="UTF-8"]) {
+	/* keep header pseudo elements visible */
+	display: block;
+	counter-increment: error error-other !important;
 }
-meta[charset]:not([charset="UTF-8"])::after{
-    display: block;
-    margin-bottom: 1rem;
-    color: var(--error-font-color);
-    background: var(--error-bg-color);
-    border: var(--error-font-color) dashed 1px;
-    padding: 5px 10px;
-    content: var(--error-pic) var(--alert-html-02) !important;
+meta[charset]:not([charset="UTF-8"])::after {
+	display: block;
+	margin-bottom: 1rem;
+	color: var(--error-font-color);
+	background: var(--error-bg-color);
+	border: var(--error-font-color) dashed 1px;
+	padding: 5px 10px;
+	content: var(--error-pic) var(--alert-html-02) !important;
 }
 
 /* HTML #03
  * Charset position
  */
-meta[charset="UTF-8"]:not(:first-child){
-    display: block;
-    counter-increment: error error-other !important;
+meta[charset="UTF-8"]:not(:first-child) {
+	display: block;
+	counter-increment: error error-other !important;
 }
-meta[charset="UTF-8"]:not(:first-child)::after{
-    display: block;
-    margin-bottom: 1rem;
-    color: var(--error-font-color);
-    background: var(--error-bg-color);
-    border: var(--error-font-color) dashed 1px;
-    padding: 5px 10px;
-    content: var(--error-pic) var(--alert-html-03) !important;
+meta[charset="UTF-8"]:not(:first-child)::after {
+	display: block;
+	margin-bottom: 1rem;
+	color: var(--error-font-color);
+	background: var(--error-bg-color);
+	border: var(--error-font-color) dashed 1px;
+	padding: 5px 10px;
+	content: var(--error-pic) var(--alert-html-03) !important;
 }
 
 /* HTML #04
@@ -166,39 +180,38 @@ meta[charset="UTF-8"]:not(:first-child)::after{
 meta[name="viewport"][content*="user-scalable=no"],
 meta[name="viewport"][content*="maximum-scale"],
 meta[name="viewport"][content*="minimum-scale"] {
-    display: block;
-    counter-increment: error error-other !important;
+	display: block;
+	counter-increment: error error-other !important;
 }
 meta[name="viewport"][content*="user-scalable=no"]::after,
 meta[name="viewport"][content*="maximum-scale"]::after,
 meta[name="viewport"][content*="minimum-scale"]::after {
-    display: block;
-    margin-bottom: 1rem;
-    color: var(--error-font-color);
-    background: var(--error-bg-color);
-    border: var(--error-font-color) dashed 1px;
-    padding: 5px 10px;
-    content: var(--error-pic) var(--alert-html-04) !important;
+	display: block;
+	margin-bottom: 1rem;
+	color: var(--error-font-color);
+	background: var(--error-bg-color);
+	border: var(--error-font-color) dashed 1px;
+	padding: 5px 10px;
+	content: var(--error-pic) var(--alert-html-04) !important;
 }
 
 /* HTML #05
  * No meta refresh
  */
-head > meta[http-equiv="refresh"]{
-    /* rend les pseudo-éléments visibles dans le header */
-    display: block; 
-    counter-increment: error error-other !important;
+head > meta[http-equiv="refresh"] {
+	/* rend les pseudo-éléments visibles dans le header */
+	display: block;
+	counter-increment: error error-other !important;
 }
-head > meta[http-equiv="refresh"]::after{
-    display: block;
-    margin-bottom: 1rem;
-    color: var(--error-font-color);
-    background: var(--error-bg-color);
-    border: var(--error-font-color) dashed 1px;
-    padding: 5px 10px;
-    content: var(--error-pic) var(--alert-html-05) !important;
+head > meta[http-equiv="refresh"]::after {
+	display: block;
+	margin-bottom: 1rem;
+	color: var(--error-font-color);
+	background: var(--error-bg-color);
+	border: var(--error-font-color) dashed 1px;
+	padding: 5px 10px;
+	content: var(--error-pic) var(--alert-html-05) !important;
 }
-
 
 /* 
  * a11y.css some alerts selection from the huge work of Gaël Poupard https://ffoodd.github.io/a11y.css/
@@ -207,35 +220,77 @@ head > meta[http-equiv="refresh"]::after{
 /* HTML #06
  * Badly bound label: use for to bound it with the input id's 
  */
-label[for=""], label[for=" "] {
-    counter-increment: error error-label !important;
-    outline: 4px solid (--error-border-color) !important;
-    outline-offset: -4px !important;
+label[for=""],
+label[for=" "] {
+	counter-increment: error error-label !important;
+	outline: 4px solid (--error-border-color) !important;
+	outline-offset: -4px !important;
 }
-label[for=""]::after, label[for=" "]::after {
-    display: block;
-    color: var(--error-font-color);
-    background: var(--error-bg-color);
-    border: var(--error-font-color) dashed 1px;
-    padding: 5px 10px;
-    content: var(--error-pic) var(--alert-html-06) !important;
+label[for=""]::after,
+label[for=" "]::after {
+	display: block;
+	color: var(--error-font-color);
+	background: var(--error-bg-color);
+	border: var(--error-font-color) dashed 1px;
+	padding: 5px 10px;
+	content: var(--error-pic) var(--alert-html-06) !important;
 }
 
 /* HTML #07
  * Id name with bad syntax
  */
-[id^="1"], [id^="2"], [id^="3"], [id^="4"], [id^="5"], [id^="6"], [id^="7"], [id^="8"], [id^="9"], [id^="0"], [id^="--"], [id^="-1"], [id^="-2"], [id^="-3"], [id^="-4"], [id^="-5"], [id^="-6"], [id^="-7"], [id^="-8"], [id^="-9"], [id^="-0"] {
-    counter-increment: error error-other !important;
-    outline: 4px solid (--error-border-color) !important;
-    outline-offset: -4px !important;
+[id^="1"],
+[id^="2"],
+[id^="3"],
+[id^="4"],
+[id^="5"],
+[id^="6"],
+[id^="7"],
+[id^="8"],
+[id^="9"],
+[id^="0"],
+[id^="--"],
+[id^="-1"],
+[id^="-2"],
+[id^="-3"],
+[id^="-4"],
+[id^="-5"],
+[id^="-6"],
+[id^="-7"],
+[id^="-8"],
+[id^="-9"],
+[id^="-0"] {
+	counter-increment: error error-other !important;
+	outline: 4px solid (--error-border-color) !important;
+	outline-offset: -4px !important;
 }
-[id^="1"]::after, [id^="2"]::after, [id^="3"]::after, [id^="4"]::after, [id^="5"]::after, [id^="6"]::after, [id^="7"]::after, [id^="8"]::after, [id^="9"]::after, [id^="0"]::after, [id^="--"]::after, [id^="-1"]::after, [id^="-2"]::after, [id^="-3"]::after, [id^="-4"]::after, [id^="-5"]::after, [id^="-6"]::after, [id^="-7"]::after, [id^="-8"]::after, [id^="-9"]::after, [id^="-0"]::after {
-    display: block;
-    color: var(--error-font-color);
-    background: var(--error-bg-color);
-    border: var(--error-font-color) dashed 1px;
-    padding: 5px 10px;
-    content: var(--error-pic) var(--alert-html-07) !important;
+[id^="1"]::after,
+[id^="2"]::after,
+[id^="3"]::after,
+[id^="4"]::after,
+[id^="5"]::after,
+[id^="6"]::after,
+[id^="7"]::after,
+[id^="8"]::after,
+[id^="9"]::after,
+[id^="0"]::after,
+[id^="--"]::after,
+[id^="-1"]::after,
+[id^="-2"]::after,
+[id^="-3"]::after,
+[id^="-4"]::after,
+[id^="-5"]::after,
+[id^="-6"]::after,
+[id^="-7"]::after,
+[id^="-8"]::after,
+[id^="-9"]::after,
+[id^="-0"]::after {
+	display: block;
+	color: var(--error-font-color);
+	background: var(--error-bg-color);
+	border: var(--error-font-color) dashed 1px;
+	padding: 5px 10px;
+	content: var(--error-pic) var(--alert-html-07) !important;
 }
 
 /* HTML #08
@@ -243,16 +298,16 @@ label[for=""]::after, label[for=" "]::after {
  */
 :not(img):not(object):not(embed):not(svg):not(canvas)[width],
 :not(img):not(object):not(embed):not(svg):not(canvas)[height] {
-    counter-increment: error error-other !important;
+	counter-increment: error error-other !important;
 }
 :not(img):not(object):not(embed):not(svg):not(canvas)[width]::after,
 :not(img):not(object):not(embed):not(svg):not(canvas)[height]::after {
-    display: block;
-    color: var(--error-font-color);
-    background: var(--error-bg-color);
-    border: var(--error-font-color) dashed 1px;
-    padding: 5px 10px;
-    content: var(--error-pic) var(--alert-html-08) !important;
+	display: block;
+	color: var(--error-font-color);
+	background: var(--error-bg-color);
+	border: var(--error-font-color) dashed 1px;
+	padding: 5px 10px;
+	content: var(--error-pic) var(--alert-html-08) !important;
 }
 
 /* HTML #09
@@ -260,33 +315,33 @@ label[for=""]::after, label[for=" "]::after {
  */
 button:empty:not([aria-label]):not([aria-labelledby]):not([title]),
 button:-moz-only-whitespace:not([aria-label]):not([aria-labelledby]):not([title]) {
-    counter-increment: error error-other !important;
+	counter-increment: error error-other !important;
 }
 button:empty:not([aria-label]):not([aria-labelledby]):not([title])::after,
 button:-moz-only-whitespace:not([aria-label]):not([aria-labelledby]):not([title])::after {
-    display: block;
-    color: var(--error-font-color);
-    background: var(--error-bg-color);
-    border: var(--error-font-color) dashed 1px;
-    padding: 5px 10px;
-    content: var(--error-pic) var(--alert-html-09) !important;
+	display: block;
+	color: var(--error-font-color);
+	background: var(--error-bg-color);
+	border: var(--error-font-color) dashed 1px;
+	padding: 5px 10px;
+	content: var(--error-pic) var(--alert-html-09) !important;
 }
 
 /* HTML #10
  * No empty hrefs
  */
-a[href=""], 
-a[href=" "]{
-    counter-increment: error error-link !important;
+a[href=""],
+a[href=" "] {
+	counter-increment: error error-link !important;
 }
-a[href=""]::after, 
+a[href=""]::after,
 a[href=" "]::after {
-    display: block;
-    color: var(--error-font-color);
-    background: var(--error-bg-color);
-    border: var(--error-font-color) dashed 1px;
-    padding: 5px 10px;
-    content: var(--error-pic) var(--alert-html-10) !important;
+	display: block;
+	color: var(--error-font-color);
+	background: var(--error-bg-color);
+	border: var(--error-font-color) dashed 1px;
+	padding: 5px 10px;
+	content: var(--error-pic) var(--alert-html-10) !important;
 }
 
 /* HTML #11
@@ -300,7 +355,7 @@ a:-moz-only-whitespace[title=""],
 a:-moz-only-whitespace[aria-label=""],
 a:-moz-only-whitespace[aria-labelledby=""],
 a:-moz-only-whitespace:not([title]):not([aria-label]):not([aria-labelledby]) {
-    counter-increment: error error-link !important;
+	counter-increment: error error-link !important;
 }
 a:empty[title=""]::after,
 a:empty[aria-label=""]::after,
@@ -310,12 +365,12 @@ a:-moz-only-whitespace[title=""]::after,
 a:-moz-only-whitespace[aria-label=""]::after,
 a:-moz-only-whitespace[aria-labelledby=""]::after,
 a:-moz-only-whitespace:not([title]):not([aria-label]):not([aria-labelledby])::after {
-    display: block;
-    color: var(--error-font-color);
-    background: var(--error-bg-color);
-    border: var(--error-font-color) dashed 1px;
-    padding: 5px 10px;
-    content: var(--error-pic) var(--alert-html-11) !important;
+	display: block;
+	color: var(--error-font-color);
+	background: var(--error-bg-color);
+	border: var(--error-font-color) dashed 1px;
+	padding: 5px 10px;
+	content: var(--error-pic) var(--alert-html-11) !important;
 }
 
 /* HTML #12
@@ -323,18 +378,18 @@ a:-moz-only-whitespace:not([title]):not([aria-label]):not([aria-labelledby])::af
  */
 [type="radio"]:not([name]),
 [type="checkbox"]:not(:only-of-type):not([name]) {
-    outline: 4px solid var(--error-border-color) !important;
-    outline-offset: -4px !important;
-    counter-increment: error error-other !important;
+	outline: 4px solid var(--error-border-color) !important;
+	outline-offset: -4px !important;
+	counter-increment: error error-other !important;
 }
 [type="radio"]:not([name]) + ::before,
 [type="checkbox"]:not(:only-of-type):not([name]) + ::before {
-    display: block;
-    color: var(--error-font-color);
-    background: var(--error-bg-color);
-    border: var(--error-font-color) dashed 1px;
-    padding: 5px 10px;
-    content: var(--error-pic) var(--alert-html-12) !important;
+	display: block;
+	color: var(--error-font-color);
+	background: var(--error-bg-color);
+	border: var(--error-font-color) dashed 1px;
+	padding: 5px 10px;
+	content: var(--error-pic) var(--alert-html-12) !important;
 }
 
 /* HTML #13
@@ -368,9 +423,9 @@ form form,
 label label,
 meter meter,
 progress progress {
-    outline: 4px solid var(--error-border-color) !important;
-    outline-offset: -4px !important;
-    counter-increment: error error-other !important;
+	outline: 4px solid var(--error-border-color) !important;
+	outline-offset: -4px !important;
+	counter-increment: error error-other !important;
 }
 a a[href]::after,
 button a[href]::after,
@@ -400,12 +455,12 @@ form form::after,
 label label::after,
 meter meter::after,
 progress progress::after {
-    display: block;
-    color: var(--error-font-color);
-    background: var(--error-bg-color);
-    border: var(--error-font-color) dashed 1px;
-    padding: 5px 10px;
-    content: var(--error-pic) var(--alert-html-13) !important;
+	display: block;
+	color: var(--error-font-color);
+	background: var(--error-bg-color);
+	border: var(--error-font-color) dashed 1px;
+	padding: 5px 10px;
+	content: var(--error-pic) var(--alert-html-13) !important;
 }
 
 /* HTML #14
@@ -413,18 +468,18 @@ progress progress::after {
  */
 form:not([action]):not([method="get"]):not([method="post"]):not([method="dialog"]),
 form[action=""]:not([method="get"]):not([method="post"]):not([method="dialog"]) {
-    outline: 4px solid var(--error-border-color) !important;
-    outline-offset: -4px !important;
-    counter-increment: error error-other !important;
+	outline: 4px solid var(--error-border-color) !important;
+	outline-offset: -4px !important;
+	counter-increment: error error-other !important;
 }
 form:not([action]):not([method="get"]):not([method="post"]):not([method="dialog"])::after,
 form[action=""]:not([method="get"]):not([method="post"]):not([method="dialog"])::after {
-    display: block;
-    color: var(--error-font-color);
-    background: var(--error-bg-color);
-    border: var(--error-font-color) dashed 1px;
-    padding: 5px 10px;
-    content: var(--error-pic) var(--alert-html-14) !important;
+	display: block;
+	color: var(--error-font-color);
+	background: var(--error-bg-color);
+	border: var(--error-font-color) dashed 1px;
+	padding: 5px 10px;
+	content: var(--error-pic) var(--alert-html-14) !important;
 }
 
 /* HTML #15
@@ -436,22 +491,22 @@ input[type="image"][alt=" "],
 img:not([alt]),
 area:not([alt]),
 input[type="image"]:not([alt]) {
-    outline: 4px solid var(--error-border-color) !important;
-    outline-offset: -4px !important;
-    counter-increment: error error-img !important;
+	outline: 4px solid var(--error-border-color) !important;
+	outline-offset: -4px !important;
+	counter-increment: error error-img !important;
 }
-img[alt=" "] + ::before, 
+img[alt=" "] + ::before,
 area[alt=" "] + ::before,
 input[type="image"][alt=" "] + ::before,
 img:not([alt]) + ::before,
 area:not([alt]) + ::before,
 input[type="image"]:not([alt]) + ::before {
-    display: block;
-    color: var(--error-font-color);
-    background: var(--error-bg-color);
-    border: var(--error-font-color) dashed 1px;
-    padding: 5px 10px;
-    content: var(--error-pic) var(--alert-html-15) !important;
+	display: block;
+	color: var(--error-font-color);
+	background: var(--error-bg-color);
+	border: var(--error-font-color) dashed 1px;
+	padding: 5px 10px;
+	content: var(--error-pic) var(--alert-html-15) !important;
 }
 
 /* HTML #16
@@ -460,19 +515,20 @@ input[type="image"]:not([alt]) + ::before {
 input:not([type="button"]):not([type="submit"]):not([type="hidden"]):not([type="reset"]):not([type="image"]):not([id]):not([aria-label]):not([title]):not([aria-labelledby]),
 textarea:not([id]):not([aria-label]):not([aria-labelledby]),
 select:not([id]):not([aria-label]):not([aria-labelledby]) {
-    outline: 4px solid var(--error-border-color) !important;
-    outline-offset: -4px !important;
-    counter-increment: error error-label !important;
+	outline: 4px solid var(--error-border-color) !important;
+	outline-offset: -4px !important;
+	counter-increment: error error-label !important;
 }
-input:not([type="button"]):not([type="submit"]):not([type="hidden"]):not([type="reset"]):not([type="image"]):not([id]):not([aria-label]):not([title]):not([aria-labelledby]) + ::before,
+input:not([type="button"]):not([type="submit"]):not([type="hidden"]):not([type="reset"]):not([type="image"]):not([id]):not([aria-label]):not([title]):not([aria-labelledby])
+	+ ::before,
 textarea:not([id]):not([aria-label]):not([aria-labelledby]) + ::before,
 select:not([id]):not([aria-label]):not([aria-labelledby]) + ::before {
-    display: block;
-    color: var(--error-font-color);
-    background: var(--error-bg-color);
-    border: var(--error-font-color) dashed 1px;
-    padding: 5px 10px;
-    content: var(--error-pic) var(--alert-html-16) !important;
+	display: block;
+	color: var(--error-font-color);
+	background: var(--error-bg-color);
+	border: var(--error-font-color) dashed 1px;
+	padding: 5px 10px;
+	content: var(--error-pic) var(--alert-html-16) !important;
 }
 
 /* HTML #17
@@ -480,19 +536,19 @@ select:not([id]):not([aria-label]):not([aria-labelledby]) + ::before {
  */
 title:empty,
 title:-moz-only-whitespace {
-    /* keep header element visible */
-    display: block;
-    counter-increment: error error-other !important;
+	/* keep header element visible */
+	display: block;
+	counter-increment: error error-other !important;
 }
 title:empty::after,
 title:-moz-only-whitespace::after {
-    display: block;
-    margin-bottom: 1rem;
-    color: var(--error-font-color);
-    background: var(--error-bg-color);
-    border: var(--error-font-color) dashed 1px;
-    padding: 5px 10px;
-    content: var(--error-pic) var(--alert-html-17) !important;
+	display: block;
+	margin-bottom: 1rem;
+	color: var(--error-font-color);
+	background: var(--error-bg-color);
+	border: var(--error-font-color) dashed 1px;
+	padding: 5px 10px;
+	content: var(--error-pic) var(--alert-html-17) !important;
 }
 
 /* HTML #18
@@ -501,19 +557,19 @@ title:-moz-only-whitespace::after {
 iframe:not([title]),
 iframe[title=" "],
 iframe[title=""] {
-    outline: 4px solid var(--error-border-color) !important;
-    outline-offset: -4px !important;
-    counter-increment: error error-other !important;
+	outline: 4px solid var(--error-border-color) !important;
+	outline-offset: -4px !important;
+	counter-increment: error error-other !important;
 }
 iframe:not([title]) + ::before,
 iframe[title=" "] + ::before,
 iframe[title=""] + ::before {
-    display: block;
-    color: var(--error-font-color);
-    background: var(--error-bg-color);
-    border: var(--error-font-color) dashed 1px;
-    padding: 5px 10px;
-    content: var(--error-pic) var(--alert-html-18) !important;
+	display: block;
+	color: var(--error-font-color);
+	background: var(--error-bg-color);
+	border: var(--error-font-color) dashed 1px;
+	padding: 5px 10px;
+	content: var(--error-pic) var(--alert-html-18) !important;
 }
 
 /* HTML #19
@@ -523,19 +579,19 @@ iframe[title=""] + ::before {
 button:not([type]),
 button[type=" "],
 button[type=""] {
-    outline: 4px solid var(--error-border-color) !important;
-    outline-offset: -4px !important;
-    counter-increment: error error-other !important;
+	outline: 4px solid var(--error-border-color) !important;
+	outline-offset: -4px !important;
+	counter-increment: error error-other !important;
 }
 button:not([type])::after,
 button[type=" "]::after,
 button[type=""]::after {
-    display: block;
-    color: var(--error-font-color);
-    background: var(--error-bg-color);
-    border: var(--error-font-color) dashed 1px;
-    padding: 5px 10px;
-    content: var(--error-pic) var(--alert-html-19) !important;
+	display: block;
+	color: var(--error-font-color);
+	background: var(--error-bg-color);
+	border: var(--error-font-color) dashed 1px;
+	padding: 5px 10px;
+	content: var(--error-pic) var(--alert-html-19) !important;
 }
 
 /* HTML #20
@@ -544,36 +600,36 @@ button[type=""]::after {
 input:not([type]),
 input[type=" "],
 input[type=""] {
-    outline: 4px solid var(--error-border-color) !important;
-    outline-offset: -4px !important;
-    counter-increment: error error-other !important;
+	outline: 4px solid var(--error-border-color) !important;
+	outline-offset: -4px !important;
+	counter-increment: error error-other !important;
 }
 input:not([type]) + ::before,
 input[type=" "] + ::before,
 input[type=""] + ::before {
-    display: block;
-    color: var(--error-font-color);
-    background: var(--error-bg-color);
-    border: var(--error-font-color) dashed 1px;
-    padding: 5px 10px;
-    content: var(--error-pic) var(--alert-html-20) !important;
+	display: block;
+	color: var(--error-font-color);
+	background: var(--error-bg-color);
+	border: var(--error-font-color) dashed 1px;
+	padding: 5px 10px;
+	content: var(--error-pic) var(--alert-html-20) !important;
 }
 
 /* HTML #21
  * Tabindex > 0
  */
 [tabindex]:not([tabindex="0"]):not([tabindex="-1"]) {
-    outline: 4px solid var(--error-border-color) !important;
-    outline-offset: -4px !important;
-    counter-increment: error error-other !important;
+	outline: 4px solid var(--error-border-color) !important;
+	outline-offset: -4px !important;
+	counter-increment: error error-other !important;
 }
 [tabindex]:not([tabindex="0"]):not([tabindex="-1"])::after {
-    display: block;
-    color: var(--error-font-color);
-    background: var(--error-bg-color);
-    border: var(--error-font-color) dashed 1px;
-    padding: 5px 10px;
-    content: var(--error-pic) var(--alert-html-21) !important;
+	display: block;
+	color: var(--error-font-color);
+	background: var(--error-bg-color);
+	border: var(--error-font-color) dashed 1px;
+	padding: 5px 10px;
+	content: var(--error-pic) var(--alert-html-21) !important;
 }
 
 /* HTML #22
@@ -581,36 +637,36 @@ input[type=""] + ::before {
  */
 dt + :not(dd),
 :not(dt):not(dd) + dd {
-    outline: 4px solid var(--error-border-color) !important;
-    outline-offset: -4px !important;
-    counter-increment: error error-other !important;
+	outline: 4px solid var(--error-border-color) !important;
+	outline-offset: -4px !important;
+	counter-increment: error error-other !important;
 }
 :not(dl) > dt::after,
 :not(dl) > dd::after,
 dl > :not(dt):not(dd):not(div)::after {
-    display: block;
-    color: var(--error-font-color);
-    background: var(--error-bg-color);
-    border: var(--error-font-color) dashed 1px;
-    padding: 5px 10px;
-    content: var(--error-pic) var(--alert-html-22) !important;
+	display: block;
+	color: var(--error-font-color);
+	background: var(--error-bg-color);
+	border: var(--error-font-color) dashed 1px;
+	padding: 5px 10px;
+	content: var(--error-pic) var(--alert-html-22) !important;
 }
 
 /* HTML #23
  * figcaption outside a figure
  */
 :not(figure) > figcaption {
-    outline: 4px solid var(--error-border-color) !important;
-    outline-offset: -4px !important;
-    counter-increment: error error-other !important;
+	outline: 4px solid var(--error-border-color) !important;
+	outline-offset: -4px !important;
+	counter-increment: error error-other !important;
 }
 :not(figure) > figcaption::after {
-    display: block;
-    color: var(--error-font-color);
-    background: var(--error-bg-color);
-    border: var(--error-font-color) dashed 1px;
-    padding: 5px 10px;
-    content: var(--error-pic) var(--alert-html-23) !important;
+	display: block;
+	color: var(--error-font-color);
+	background: var(--error-bg-color);
+	border: var(--error-font-color) dashed 1px;
+	padding: 5px 10px;
+	content: var(--error-pic) var(--alert-html-23) !important;
 }
 
 /* HTML #24
@@ -619,19 +675,19 @@ dl > :not(dt):not(dd):not(div)::after {
 ul > :not(li),
 ol > :not(li),
 :not(ul):not(ol) > li {
-    outline: 4px solid var(--error-border-color) !important;
-    outline-offset: -4px !important;
-    counter-increment: error error-other !important;
+	outline: 4px solid var(--error-border-color) !important;
+	outline-offset: -4px !important;
+	counter-increment: error error-other !important;
 }
 ul > :not(li)::after,
 ol > :not(li)::after,
 :not(ul):not(ol) > li::after {
-    display: block;
-    color: var(--error-font-color);
-    background: var(--error-bg-color);
-    border: var(--error-font-color) dashed 1px;
-    padding: 5px 10px;
-    content: var(--error-pic) var(--alert-html-24) !important;
+	display: block;
+	color: var(--error-font-color);
+	background: var(--error-bg-color);
+	border: var(--error-font-color) dashed 1px;
+	padding: 5px 10px;
+	content: var(--error-pic) var(--alert-html-24) !important;
 }
 
 /* HTML #25
@@ -666,9 +722,9 @@ address footer,
 address address,
 address article,
 address section {
-    outline: 4px solid var(--error-border-color) !important;
-    outline-offset: -4px !important;
-    counter-increment: error error-other !important;
+	outline: 4px solid var(--error-border-color) !important;
+	outline-offset: -4px !important;
+	counter-increment: error error-other !important;
 }
 nav main::after,
 aside main::after,
@@ -679,13 +735,14 @@ article main::after,
 :not(tr) > th::after,
 colgroup:not(col)::after,
 :not(colgroup) > col::after,
-tr >:not(td):not(th)::after,
-optgroup >:not(option)::after,
+tr > :not(td):not(th)::after,
+optgroup > :not(option)::after,
 :not(select) > optgroup::after,
 :not(fieldset) > legend::after,
-select >:not(option):not(optgroup)::after,
+select > :not(option):not(optgroup)::after,
 :not(select):not(optgroup) > option::after,
-table >:not(thead):not(tfoot):not(tbody):not(tr):not(colgroup):not(caption)::after,
+table
+	> :not(thead):not(tfoot):not(tbody):not(tr):not(colgroup):not(caption)::after,
 address h1::after,
 address h2::after,
 address h3::after,
@@ -699,13 +756,13 @@ address footer::after,
 address address::after,
 address article::after,
 address section::after {
-    display: block;
-    margin-bottom: 1rem;
-    color: var(--error-font-color);
-    background: var(--error-bg-color);
-    border: var(--error-font-color) dashed 1px;
-    padding: 5px 10px;
-    content: var(--error-pic) var(--alert-html-25) !important;
+	display: block;
+	margin-bottom: 1rem;
+	color: var(--error-font-color);
+	background: var(--error-bg-color);
+	border: var(--error-font-color) dashed 1px;
+	padding: 5px 10px;
+	content: var(--error-pic) var(--alert-html-25) !important;
 }
 
 /* HTML #26
@@ -718,9 +775,9 @@ aside > section:first-child,
 section > section:first-child,
 article > section:first-child,
 article > article:first-child {
-    outline: 4px solid var(--error-border-color) !important;
-    outline-offset: -4px !important;
-    counter-increment: error error-other !important;
+	outline: 4px solid var(--error-border-color) !important;
+	outline-offset: -4px !important;
+	counter-increment: error error-other !important;
 }
 aside > aside:first-child::after,
 article > aside:first-child::after,
@@ -729,12 +786,12 @@ aside > section:first-child::after,
 section > section:first-child::after,
 article > section:first-child::after,
 article > article:first-child::after {
-    display: block;
-    color: var(--error-font-color);
-    background: var(--error-bg-color);
-    border: var(--error-font-color) dashed 1px;
-    padding: 5px 10px;
-    content: var(--error-pic) var(--alert-html-26) !important;
+	display: block;
+	color: var(--error-font-color);
+	background: var(--error-bg-color);
+	border: var(--error-font-color) dashed 1px;
+	padding: 5px 10px;
+	content: var(--error-pic) var(--alert-html-26) !important;
 }
 
 /* HTML #27
@@ -751,9 +808,9 @@ span div,
 small div,
 label div,
 strong div {
-    outline: 4px solid var(--error-border-color) !important;
-    outline-offset: -4px !important;
-    counter-increment: error error-other !important;
+	outline: 4px solid var(--error-border-color) !important;
+	outline-offset: -4px !important;
+	counter-increment: error error-other !important;
 }
 b div::after,
 i div::after,
@@ -766,29 +823,29 @@ span div::after,
 small div::after,
 label div::after,
 strong div::after {
-    display: block;
-    color: var(--error-font-color);
-    background: var(--error-bg-color);
-    border: var(--error-font-color) dashed 1px;
-    padding: 5px 10px;
-    content: var(--warn-pic) var(--alert-html-27) !important;
+	display: block;
+	color: var(--error-font-color);
+	background: var(--error-bg-color);
+	border: var(--error-font-color) dashed 1px;
+	padding: 5px 10px;
+	content: var(--warn-pic) var(--alert-html-27) !important;
 }
 
 /* HTML #28
  * A label without a [for] attribute
  */
 label:not([for]) {
-    outline: 4px solid var(--error-border-color) !important;
-    outline-offset: -4px !important;
-    counter-increment: error error-label !important;
+	outline: 4px solid var(--error-border-color) !important;
+	outline-offset: -4px !important;
+	counter-increment: error error-label !important;
 }
 label:not([for])::after {
-    display: block;
-    color: var(--error-font-color);
-    background: var(--error-bg-color);
-    border: var(--error-font-color) dashed 1px;
-    padding: 5px 10px;
-    content: var(--warn-pic) var(--alert-html-28) !important;
+	display: block;
+	color: var(--error-font-color);
+	background: var(--error-bg-color);
+	border: var(--error-font-color) dashed 1px;
+	padding: 5px 10px;
+	content: var(--warn-pic) var(--alert-html-28) !important;
 }
 
 /* HTML #29
@@ -796,18 +853,18 @@ label:not([for])::after {
  */
 fieldset > *:not(legend):first-child,
 fieldset > legend:not(:first-child) {
-    outline: 4px solid var(--error-border-color) !important;
-    outline-offset: -4px !important;
-    counter-increment: error error-other !important;
+	outline: 4px solid var(--error-border-color) !important;
+	outline-offset: -4px !important;
+	counter-increment: error error-other !important;
 }
 fieldset > :not(legend):first-child::after,
 fieldset > legend:not(:first-child)::after {
-    display: block;
-    color: var(--error-font-color);
-    background: var(--error-bg-color);
-    border: var(--error-font-color) dashed 1px;
-    padding: 5px 10px;
-    content: var(--warn-pic) var(--alert-html-29) !important;
+	display: block;
+	color: var(--error-font-color);
+	background: var(--error-bg-color);
+	border: var(--error-font-color) dashed 1px;
+	padding: 5px 10px;
+	content: var(--warn-pic) var(--alert-html-29) !important;
 }
 
 /* HTML #30
@@ -815,18 +872,18 @@ fieldset > legend:not(:first-child)::after {
  */
 table:not([role="presentation"]) > caption:not(:first-child),
 table:not([role="presentation"]) > *:first-child:not(caption) {
-    outline: 4px solid var(--warn-border-color) !important;
-    outline-offset: -4px !important;
-    counter-increment: warning warning-other !important;
+	outline: 4px solid var(--warn-border-color) !important;
+	outline-offset: -4px !important;
+	counter-increment: warning warning-other !important;
 }
 table:not([role="presentation"]) > caption:not(:first-child)::after,
 table:not([role="presentation"]) > :first-child:not(caption)::after {
-    display: block;
-    color: var(--warn-font-color);
-    background: var(--warn-bg-color);
-    border: var(--warn-font-color) dashed 1px;
-    padding: 5px 10px;
-    content: var(--warn-pic) var(--alert-html-30) !important;
+	display: block;
+	color: var(--warn-font-color);
+	background: var(--warn-bg-color);
+	border: var(--warn-font-color) dashed 1px;
+	padding: 5px 10px;
+	content: var(--warn-pic) var(--alert-html-30) !important;
 }
 
 /* HTML #31
@@ -835,18 +892,19 @@ table:not([role="presentation"]) > :first-child:not(caption)::after {
 [target$="blank"]:not([rel]),
 [target$="blank"]:not([rel*="noopener"]),
 [target$="blank"]:not([rel*="noreferrer"]) {
-    outline: 4px solid var(--warn-border-color) !important;
-    outline-offset: -4px !important;
-    counter-increment: warning warning-target !important;
+	outline: 4px solid var(--warn-border-color) !important;
+	outline-offset: -4px !important;
+	counter-increment: warning warning-target !important;
 }
-[target$="blank"]:not([rel])::after, 
-[target$="blank"]:not([rel*="noopener"])::after, [target$="blank"]:not([rel*="noreferrer"])::after {
-    display: block;
-    color: var(--warn-font-color);
-    background: var(--warn-bg-color);
-    border: var(--warn-font-color) dashed 1px;
-    padding: 5px 10px;
-    content: var(--warn-pic) var(--alert-html-31) !important;
+[target$="blank"]:not([rel])::after,
+[target$="blank"]:not([rel*="noopener"])::after,
+[target$="blank"]:not([rel*="noreferrer"])::after {
+	display: block;
+	color: var(--warn-font-color);
+	background: var(--warn-bg-color);
+	border: var(--warn-font-color) dashed 1px;
+	padding: 5px 10px;
+	content: var(--warn-pic) var(--alert-html-31) !important;
 }
 
 /* HTML #32
@@ -855,36 +913,36 @@ table:not([role="presentation"]) > :first-child:not(caption)::after {
 form:not([action]),
 form[action=" "],
 form[action=""] {
-    outline: 4px solid var(--warn-border-color) !important;
-    outline-offset: -4px !important;
-    counter-increment: warning warning-other !important;
+	outline: 4px solid var(--warn-border-color) !important;
+	outline-offset: -4px !important;
+	counter-increment: warning warning-other !important;
 }
-form:not([action])::after, 
-form[action=" "]::after, 
+form:not([action])::after,
+form[action=" "]::after,
 form[action=""]::after {
-    display: block;
-    color: var(--warn-font-color);
-    background: var(--warn-bg-color);
-    border: var(--warn-font-color) dashed 1px;
-    padding: 5px 10px;
-    content: var(--warn-pic) var(--alert-html-32) !important;
+	display: block;
+	color: var(--warn-font-color);
+	background: var(--warn-bg-color);
+	border: var(--warn-font-color) dashed 1px;
+	padding: 5px 10px;
+	content: var(--warn-pic) var(--alert-html-32) !important;
 }
 
 /* HTML #33
  * No [href]
  */
 a:not([href]) {
-    outline: 4px solid var(--warn-border-color) !important;
-    outline-offset: -4px !important;
-    counter-increment: warning warning-href !important;
+	outline: 4px solid var(--warn-border-color) !important;
+	outline-offset: -4px !important;
+	counter-increment: warning warning-href !important;
 }
 a:not([href])::after {
-    display: block;
-    color: var(--warn-font-color);
-    background: var(--warn-bg-color);
-    border: var(--warn-font-color) dashed 1px;
-    padding: 5px 10px;
-    content: var(--warn-pic) var(--alert-html-33) !important;
+	display: block;
+	color: var(--warn-font-color);
+	background: var(--warn-bg-color);
+	border: var(--warn-font-color) dashed 1px;
+	padding: 5px 10px;
+	content: var(--warn-pic) var(--alert-html-33) !important;
 }
 
 /* HTML #34
@@ -892,35 +950,35 @@ a:not([href])::after {
  */
 [src^="http:"],
 [href^="http:"] {
-    outline: 4px solid var(--warn-border-color) !important;
-    outline-offset: -4px !important;
-    counter-increment: warning warning-https !important;
+	outline: 4px solid var(--warn-border-color) !important;
+	outline-offset: -4px !important;
+	counter-increment: warning warning-https !important;
 }
 [src^="http:"]::after,
 [href^="http:"]::after {
-    display: block;
-    color: var(--warn-font-color);
-    background: var(--warn-bg-color);
-    border: var(--warn-font-color) dashed 1px;
-    padding: 5px 10px;
-    content: var(--warn-pic) var(--alert-html-34) !important;
+	display: block;
+	color: var(--warn-font-color);
+	background: var(--warn-bg-color);
+	border: var(--warn-font-color) dashed 1px;
+	padding: 5px 10px;
+	content: var(--warn-pic) var(--alert-html-34) !important;
 }
 
 /* HTML #35
  * Placeholder can't replace a label
  */
 [placeholder]:not([title]):not([aria-label]):not([aria-labelledby]) {
-    outline: 4px solid var(--warn-border-color) !important;
-    outline-offset: -4px !important;
-    counter-increment: warning warning-other !important;
+	outline: 4px solid var(--warn-border-color) !important;
+	outline-offset: -4px !important;
+	counter-increment: warning warning-other !important;
 }
 [placeholder]:not([title]):not([aria-label]):not([aria-labelledby]) + ::before {
-    display: block;
-    color: var(--warn-font-color);
-    background: var(--warn-bg-color);
-    border: var(--warn-font-color) dashed 1px;
-    padding: 5px 10px;
-    content: var(--warn-pic) var(--alert-html-35) !important;
+	display: block;
+	color: var(--warn-font-color);
+	background: var(--warn-bg-color);
+	border: var(--warn-font-color) dashed 1px;
+	padding: 5px 10px;
+	content: var(--warn-pic) var(--alert-html-35) !important;
 }
 
 /* HTML #36
@@ -929,22 +987,22 @@ a:not([href])::after {
 script[src^="http"][src*="cdn"]:not([integrity]):not([crossorigin]),
 script[src^="http"][src*="unpkg.com"]:not([integrity]):not([crossorigin]),
 script[src^="http"][src*="googleapis"]:not([integrity]):not([crossorigin]),
-script[src^="http"][src*="code"]:not([integrity]):not([crossorigin]){
-    /* rend les pseudo-éléments visibles dans le header */
-    display: block; 
-    counter-increment: warning warning-other !important;
+script[src^="http"][src*="code"]:not([integrity]):not([crossorigin]) {
+	/* rend les pseudo-éléments visibles dans le header */
+	display: block;
+	counter-increment: warning warning-other !important;
 }
 script[src^="http"][src*="cdn"]:not([integrity]):not([crossorigin])::after,
 script[src^="http"][src*="unpkg.com"]:not([integrity]):not([crossorigin])::after,
 script[src^="http"][src*="googleapis"]:not([integrity]):not([crossorigin])::after,
-script[src^="http"][src*="code"]:not([integrity]):not([crossorigin])::after{
-    display: block;
-    margin-bottom: 1rem;
-    color: var(--warn-font-color);
-    background: var(--warn-bg-color);
-    border: var(--warn-font-color) dashed 1px;
-    padding: 5px 10px;
-    content: var(--warn-pic) var(--alert-html-36) !important;
+script[src^="http"][src*="code"]:not([integrity]):not([crossorigin])::after {
+	display: block;
+	margin-bottom: 1rem;
+	color: var(--warn-font-color);
+	background: var(--warn-bg-color);
+	border: var(--warn-font-color) dashed 1px;
+	padding: 5px 10px;
+	content: var(--warn-pic) var(--alert-html-36) !important;
 }
 
 /* HTML #37
@@ -980,9 +1038,9 @@ tt,
 keygen,
 menu,
 menuitem {
-    outline: 4px solid var(--warn-border-color) !important;
-    outline-offset: -4px !important;
-    counter-increment: warning warning-other !important;
+	outline: 4px solid var(--warn-border-color) !important;
+	outline-offset: -4px !important;
+	counter-increment: warning warning-other !important;
 }
 applet::after,
 acronym::after,
@@ -1014,12 +1072,12 @@ tt::after,
 keygen::after,
 menu::after,
 menuitem::after {
-    display: block;
-    color: var(--warn-font-color);
-    background: var(--warn-bg-color);
-    border: var(--warn-font-color) dashed 1px;
-    padding: 5px 10px;
-    content: var(--warn-pic) var(--alert-html-37) !important;
+	display: block;
+	color: var(--warn-font-color);
+	background: var(--warn-bg-color);
+	border: var(--warn-font-color) dashed 1px;
+	padding: 5px 10px;
+	content: var(--warn-pic) var(--alert-html-37) !important;
 }
 
 /* HTML #38
@@ -1030,9 +1088,9 @@ svg[aria-hidden="true"][title],
 svg[aria-hidden="true"][aria-label],
 svg[aria-hidden="true"][aria-labelledby],
 svg[aria-hidden="true"][aria-describedby] {
-     outline: 4px solid var(--warn-border-color) !important;
-     outline-offset: -4px !important;
-     counter-increment: error error-img !important;
+	outline: 4px solid var(--warn-border-color) !important;
+	outline-offset: -4px !important;
+	counter-increment: error error-img !important;
 }
 
 svg:not([aria-hidden="true"]):not([role="img"])::before,
@@ -1040,37 +1098,33 @@ svg[aria-hidden="true"][title]::before,
 svg[aria-hidden="true"][aria-label]::before,
 svg[aria-hidden="true"][aria-labelledby]::before,
 svg[aria-hidden="true"][aria-describedby]::before {
-     display: block;
-     color: var(--warn-font-color);
-     background: var(--warn-bg-color);
-     border: var(--warn-font-color) dashed 1px;
-     padding: 5px 10px;
-     content: var(--warn-pic) var(--alert-html-38) !important;
- }
+	display: block;
+	color: var(--warn-font-color);
+	background: var(--warn-bg-color);
+	border: var(--warn-font-color) dashed 1px;
+	padding: 5px 10px;
+	content: var(--warn-pic) var(--alert-html-38) !important;
+}
 
 /* HTML #39
  * accessible SVG 
  */
 svg[role="img"]:not([aria-label]) {
-    outline: 4px solid var(--error-border-color) !important;
-    outline-offset: -4px !important;
-    counter-increment: error error-img !important;
+	outline: 4px solid var(--error-border-color) !important;
+	outline-offset: -4px !important;
+	counter-increment: error error-img !important;
 }
 
 svg[role="img"]:not([aria-label]) + *::before {
-    display: block;
-    color: var(--error-font-color);
-    background: var(--error-bg-color);
-    border: var(--error-font-color) dashed 1px;
-    padding: 5px 10px;
-    content: var(--error-pic) var(--alert-html-39) !important;
+	display: block;
+	color: var(--error-font-color);
+	background: var(--error-bg-color);
+	border: var(--error-font-color) dashed 1px;
+	padding: 5px 10px;
+	content: var(--error-pic) var(--alert-html-39) !important;
 }
 
-
-
 /*https://ffoodd.github.io/a11y.css/errors.html*/
-
-
 
 /**
  * TESTS TODO
@@ -1084,5 +1138,3 @@ svg[role="img"]:not([aria-label]) + *::before {
  * - S'assurer que le contenu des title soit identique à la propriété aria-label pour les images et les éléments interactifs
  * - Eviter les balises inline autour des balises block, ces tests sont trop nombreux et nuisent à la performance de ce bookmarklet, d'autant plus qu'ils peuvent être détectés avec https://validator.w3.org/nu
  */
-
-
