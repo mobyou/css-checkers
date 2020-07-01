@@ -1124,7 +1124,47 @@ svg[role="img"]:not([aria-label]) + *::before {
 	content: var(--error-pic) var(--alert-html-39) !important;
 }
 
-/*https://ffoodd.github.io/a11y.css/errors.html*/
+/* HTML #40
+ * Avoid skipped heading levels, thanks @Una
+ */
+ h2 ~ h1,
+ h3 ~ h1,
+ h4 ~ h1,
+ h5 ~ h1,
+ h6 ~ h1,
+ h3 ~ h2:first-of-type,
+ h4 ~ h2:first-of-type,
+ h5 ~ h2:first-of-type,
+ h6 ~ h2:first-of-type,
+ h4 ~ h3:first-of-type,
+ h5 ~ h3:first-of-type,
+ h6 ~ h4:first-of-type,
+ h6 ~ h5:first-of-type {
+	outline: 4px solid var(--error-border-color) !important;
+	outline-offset: -4px !important;
+	counter-increment: error error-other !important;
+}
+h2 ~ h1::after,
+h3 ~ h1::after,
+h4 ~ h1::after,
+h5 ~ h1::after,
+h6 ~ h1::after,
+h3 ~ h2:first-of-type::after,
+h4 ~ h2:first-of-type::after,
+h5 ~ h2:first-of-type::after,
+h6 ~ h2:first-of-type::after,
+h4 ~ h3:first-of-type::after,
+h5 ~ h3:first-of-type::after,
+h6 ~ h4:first-of-type::after,
+h6 ~ h5:first-of-type::after {
+	display: block;
+	color: var(--error-font-color);
+	background: var(--error-bg-color);
+	border: var(--error-font-color) dashed 1px;
+	padding: 5px 10px;
+	content: var(--warn-pic) var(--alert-html-40) !important;
+}
+
 
 /**
  * TESTS TODO

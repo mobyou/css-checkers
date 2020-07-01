@@ -48,6 +48,7 @@
     --alert-html-37: "obsolete tag";
     --alert-html-38: "a decorative SVG has no img role";
     --alert-html-39: "an informative SVG has an img role and an aria-label";
+    --alert-html-40: "skipped heading level";
 }
 
 

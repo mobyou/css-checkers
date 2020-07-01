@@ -48,6 +48,7 @@
     --alert-html-37: "balise obsolète";
     --alert-html-38: "un SVG décoratif n'a pas de role img";
     --alert-html-39: "un SVG informatif a un role img et un aria-label";
+    --alert-html-40: "saut de niveau de titre";
 }
 
 

@@ -44,21 +44,21 @@
         <script>
 
             /* Original Javascript */
-            // document.addEventListener("DOMContentLoaded", function() {
+            document.addEventListener("DOMContentLoaded", function() {
 
 
-            /*var cssCheck = document.createElement("link");
+            var cssCheck = document.createElement("link");
                 // dev url
-                cssCheck.href = "https://raw.githubusercontent.com/mobyou/css-checkers/2.2.3/css/css-bookmarklet-fr.min.css";
+                //cssCheck.href = "https://raw.githubusercontent.com/mobyou/css-checkers/2.2.3/css/css-bookmarklet-fr.min.css";
                 //prod url
                 cssCheck.href = "https://cdn.jsdelivr.net/gh/mobyou/css-checkers@2.2.3/css/css-bookmarklet-fr.min.css";
                 cssCheck.rel = "stylesheet";
                 cssCheck.media = "(min-width:640px)";
-                document.body.appendChild(cssCheck);*/
+                document.body.appendChild(cssCheck);
 
             /*duplicateIdsCheck*/
 
-            /*var n, e, o, r = document.getElementsByTagName("*"), t = {}, feedback = "";
+            var n, e, o, r = document.getElementsByTagName("*"), t = {}, feedback = "";
                 for (n = 0, e = r.length; n < e; n += 1)(o = r[n].id || null) && (t[o] = t.hasOwnProperty(o) ? t[o] += 1 : 0);
                 for (o in t) {
                     if (t.hasOwnProperty(o) && t[o]){
@@ -75,8 +75,8 @@
                     document.getElementById("feedbackJSChecker").innerHTML="";
                     document.getElementById("feedbackJSChecker").append(feedback);
                 }
-*/
-            //});
+
+            });
 
         </script>
 
@@ -159,6 +159,7 @@
                 <li>pas d'HTTPS</li>
                 <li>[placeholder] ne remplace pas un label</li>
                 <li>appel JS : [integrity] et [crossorigin] manquants</li>
+                <li>l'ordre des titres est cohérent</li>
 
             </ol>
             <h2>Les outils complémentaires</h2>
